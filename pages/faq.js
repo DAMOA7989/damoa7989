@@ -1,10 +1,10 @@
+import React from "react";
 import Head from "next/head";
-import Image from "next/image";
 import AppLayout from "../components/layout/app-layout";
 import AppHeader from "../components/header/app-header";
 import AppFooter from "../components/footer/app-footer";
 
-export default function Home() {
+const Faq = () => {
     return (
         <AppLayout>
             <Head>
@@ -13,8 +13,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <AppHeader />
-            <main>home</main>
+            <main>faq</main>
             <AppFooter />
         </AppLayout>
     );
-}
+};
+
+export default Faq;

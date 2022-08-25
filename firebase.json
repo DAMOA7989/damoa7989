@@ -1,11 +1,7 @@
 {
-  "hosting": {
-    "source": ".",
-    "cleanUrls": true,
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+    "hosting": {
+        "source": ".",
+        "cleanUrls": true,
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
 }
