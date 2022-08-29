@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/components/app-footer.module.scss";
+import { useTranslation } from "next-i18next";
 
 const __TABS__ = [
     {
@@ -60,12 +61,14 @@ const __SNS__ = [
 ];
 
 const AppFooter = () => {
+    const { t } = useTranslation("common");
+
     return (
         <footer className={styles.container}>
             <ul className={styles.tabs_list}>
                 {__TABS__.map((tab, idx) => (
                     <li key={tab.key} className={styles.tabs_list_item}>
-                        {tab.i18nKey}
+                        {t(tab.i18nKey)}
                     </li>
                 ))}
             </ul>
@@ -81,10 +84,10 @@ const AppFooter = () => {
             </ul>
             <ul className={styles.info_list}>
                 <li className={styles.info_list_item}>
-                    <p>address: test</p>
+                    <p>{`${t("text.address")} : ${t("text.address_value")}`}</p>
                 </li>
                 <li className={styles.info_list_item}>
-                    <p>damoa7989</p>
+                    <p>{t("text.company_name")}</p>
                 </li>
             </ul>
         </footer>

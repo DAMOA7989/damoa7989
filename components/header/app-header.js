@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "../../styles/components/app-header.module.scss";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 const __TABS__ = [
     // {
@@ -37,6 +38,7 @@ const __TABS__ = [
 ];
 
 const AppHeader = () => {
+    const { t } = useTranslation();
     const router = useRouter();
 
     const [menuVisibility, setMenuVisibility] = React.useState(false);
@@ -65,7 +67,7 @@ const AppHeader = () => {
                                 >
                                     <Link href={tab.path}>
                                         <span className="selected">
-                                            {tab.i18nKey}
+                                            {t(tab.i18nKey)}
                                         </span>
                                     </Link>
                                 </li>
