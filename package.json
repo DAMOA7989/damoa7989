@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "next build && next export",
         "start": "next start",
         "lint": "next lint",
         "update:locale": "node ./scripts/updateLocale.js"
@@ -12,9 +12,9 @@
     "dependencies": {
         "firebase": "^9.9.3",
         "i18next": "^21.9.1",
-        "i18next-browser-languagedetector": "^6.1.5",
         "next": "^12.2.5",
         "next-i18next": "^12.0.0",
+        "next-language-detector": "^1.0.2",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "sass": "^1.54.5"

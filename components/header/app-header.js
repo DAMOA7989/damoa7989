@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "../Link";
 import styles from "../../styles/components/app-header.module.scss";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -60,15 +60,14 @@ const AppHeader = () => {
                                 <li
                                     key={tab.key}
                                     className={`${styles.menu_nav_list_item} ${
-                                        router.pathname === tab.path
+                                        router.pathname ===
+                                        "/[locale]" + tab.path
                                             ? styles.active
                                             : null
                                     }`}
                                 >
                                     <Link href={tab.path}>
-                                        <span className="selected">
-                                            {t(tab.i18nKey)}
-                                        </span>
+                                        <span>{t(tab.i18nKey)}</span>
                                     </Link>
                                 </li>
                             ))}
