@@ -2,15 +2,15 @@ import React from "react";
 import Head from "next/head";
 import AppLayout from "../components/layout/app-layout";
 
-const Career = () => {
+const TeamCulture = () => {
     return (
         <AppLayout>
             <Head>
-                <title>DAMOA7989 Career</title>
+                <title>DAMOA7989 Team culture</title>
             </Head>
-            career
+            Team culture
         </AppLayout>
     );
 };
 
-export default Career;
+export default TeamCulture;
