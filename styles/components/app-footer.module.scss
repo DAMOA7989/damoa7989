@@ -1,0 +1,113 @@
+@import "../include.scss";
+
+.container {
+    padding: 40px 20px;
+    background-color: $bright_gray_color;
+    border-top: 1px solid $x11_gray_color;
+}
+
+.tabs_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.tabs_list_item {
+    font-weight: 500;
+}
+
+.sns_list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 86px;
+}
+
+.sns_list_item {
+}
+
+.github_icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        mask-image: url("/images/icon/sns/github.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        background-color: $black_color;
+    }
+}
+
+.medium_icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        mask-image: url("/images/icon/sns/medium.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        background-color: $black_color;
+    }
+}
+
+.facebook_icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        mask-image: url("/images/icon/sns/facebook.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        background-color: $black_color;
+    }
+}
+
+.instagram_icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        mask-image: url("/images/icon/sns/instagram.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        background-color: $black_color;
+    }
+}
+
+.info_list {
+    line-height: 28px;
+}
+
+.info_list_item {
+    font-size: 12px;
+    color: $gunmetal_color;
+}
