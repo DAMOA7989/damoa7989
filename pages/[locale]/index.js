@@ -5,12 +5,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { useTranslation, Trans } from "next-i18next";
 import { getStaticPaths, makeStaticProps } from "../../lib/getStatic";
-import imageIntroduction00 from "public/images/common/introduction.00.jpg";
-import imageIntroduction01 from "public/images/common/introduction.01.jpg";
+import imageIntroduction00 from "public/images/common/introduction.00.png";
+import imageIntroduction01 from "public/images/common/introduction.01.png";
 import imagePlayStore from "public/images/common/play.store.webp";
-import imageMunchSkill from "public/images/common/test.munchskill.com.png";
-import imageOrbitBridge from "public/images/common/bridge.orbitchain.io.png";
-import imageSoleX from "public/images/common/www.sole-x.io.png";
+import imageMunchSkill from "public/images/common/munchskill.svg";
+import imageOrbitBridge from "public/images/common/orbitbridge.svg";
+import imageSoleX from "public/images/common/sole-x.svg";
 import { useRouter } from "next/router";
 
 const getStaticProps = makeStaticProps(["common"]);
@@ -37,6 +37,7 @@ export default function Home() {
                         src={imageIntroduction00}
                         alter="Picture of introduction"
                         layout="responsive"
+                        placeholder="blur"
                         priority
                     />
                     <Trans
@@ -49,6 +50,7 @@ export default function Home() {
                         src={imageIntroduction01}
                         alter="Picture of introduction"
                         layout="responsive"
+                        placeholder="blur"
                         priority
                     />
                     <Trans
@@ -65,7 +67,15 @@ export default function Home() {
                     <div className="slider">
                         <div className="slides">
                             <div className="slide" onClick={() => {}}>
-                                <Image src={imagePlayStore} />
+                                <div
+                                    className={`${styles.slide_image} slide_image`}
+                                >
+                                    <Image
+                                        src={imagePlayStore}
+                                        layout="responsive"
+                                        placeholder="blur"
+                                    />
+                                </div>
                                 <div className="description">
                                     {t("text.service.00")}
                                 </div>
@@ -88,19 +98,43 @@ export default function Home() {
                     <div className="slider">
                         <div className="slides">
                             <div className="slide" onClick={() => {}}>
-                                <Image src={imageMunchSkill} />
+                                <div
+                                    className={`${styles.slide_image} slide_image`}
+                                >
+                                    <Image
+                                        src={imageMunchSkill}
+                                        layout="responsive"
+                                        // placeholder="blur"
+                                    />
+                                </div>
                                 <div className="description">
                                     {t("text.portfolio.00")}
                                 </div>
                             </div>
                             <div className="slide" onClick={() => {}}>
-                                <Image src={imageOrbitBridge} />
+                                <div
+                                    className={`${styles.slide_image} slide_image`}
+                                >
+                                    <Image
+                                        src={imageOrbitBridge}
+                                        layout="responsive"
+                                        // placeholder="blur"
+                                    />
+                                </div>
                                 <div className="description">
                                     {t("text.portfolio.01")}
                                 </div>
                             </div>
                             <div className="slide" onClick={() => {}}>
-                                <Image src={imageSoleX} />
+                                <div
+                                    className={`${styles.slide_image} slide_image`}
+                                >
+                                    <Image
+                                        src={imageSoleX}
+                                        layout="responsive"
+                                        // placeholder="blur"
+                                    />
+                                </div>
                                 <div className="description">
                                     {t("text.portfolio.02")}
                                 </div>

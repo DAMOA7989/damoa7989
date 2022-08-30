@@ -34,15 +34,18 @@
             scroll-snap-align: start;
             flex-shrink: 0;
 
-            > span {
+            > div.slide_image {
                 transform: scale(0.9);
                 transform-origin: center center;
+            }
+
+            span {
                 overflow: hidden;
                 border-radius: 6px;
             }
 
             > .description {
-                margin-top: 8px;
+                margin-top: 12px;
                 font-size: 12px;
                 color: $gunmetal_color;
             }
