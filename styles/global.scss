@@ -1,0 +1,51 @@
+@import "./include.scss";
+
+.slider {
+    width: 100%;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+
+    > .slides {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $bright_gray_color;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        > .slide {
+            width: 100%;
+            text-align: center;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+
+            > span {
+                transform: scale(0.9);
+                transform-origin: center center;
+                overflow: hidden;
+                border-radius: 6px;
+            }
+
+            > .description {
+                margin-top: 8px;
+                font-size: 12px;
+                color: $gunmetal_color;
+            }
+        }
+    }
+}

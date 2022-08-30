@@ -1,0 +1,66 @@
+@import "../include.scss";
+
+.container {
+}
+
+.introduction {
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+    > p {
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 400;
+
+        &:nth-child(1) {
+            margin-bottom: 40px;
+        }
+
+        &:nth-child(3) {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        &:nth-child(5) {
+            margin-top: 40px;
+        }
+    }
+
+    > img {
+    }
+}
+
+.image {
+    border-radius: 6px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.service {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.portfolio {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.detail_btn {
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: url("/images/icon/arrow_right_round.svg");
+        position: relative;
+        top: 4px;
+        margin-left: 9px;
+    }
+}
