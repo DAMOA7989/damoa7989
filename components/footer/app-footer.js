@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/components/app-footer.module.scss";
 import { useTranslation } from "next-i18next";
+import Link from "components/Link";
 
 const __TABS__ = [
     {
@@ -68,7 +69,7 @@ const AppFooter = () => {
             <ul className={styles.tabs_list}>
                 {__TABS__.map((tab, idx) => (
                     <li key={tab.key} className={styles.tabs_list_item}>
-                        {t(tab.i18nKey)}
+                        <Link href={tab.path}>{t(tab.i18nKey)}</Link>
                     </li>
                 ))}
             </ul>
