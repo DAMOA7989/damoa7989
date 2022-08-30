@@ -19,6 +19,34 @@ export { getStaticPaths, getStaticProps };
 export default function Home() {
     const { t } = useTranslation("common");
     const router = useRouter();
+    const serviceRef = React.useRef(null);
+    const portfolioRef = React.useRef(null);
+
+    React.useEffect(() => {
+        if (!serviceRef.current || !portfolioRef.current) return;
+
+        const observer = new IntersectionObserver(
+            ([e]) => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = "1";
+                    e.target.style.top = "0px";
+                } else {
+                    e.target.style.opacity = "0";
+                    e.target.style.top = "100px";
+                }
+            },
+            {
+                threshold: [0.1],
+            }
+        );
+
+        observer.observe(serviceRef.current);
+        observer.observe(portfolioRef.current);
+        return () => {
+            observer.unobserve(serviceRef.current);
+            observer.unobserve(portfolioRef.current);
+        };
+    }, []);
 
     return (
         <AppLayout>
@@ -62,7 +90,7 @@ export default function Home() {
                         }}
                     />
                 </article>
-                <article className={styles.service}>
+                <article ref={serviceRef} className={styles.service}>
                     <h3 className={styles.title}>{t("title.index.service")}</h3>
                     <div className="slider">
                         <div className="slides">
@@ -91,7 +119,7 @@ export default function Home() {
                         {t("btn.detail")}
                     </button>
                 </article>
-                <article className={styles.portfolio}>
+                <article ref={portfolioRef} className={styles.portfolio}>
                     <h3 className={styles.title}>
                         {t("title.index.portfolio")}
                     </h3>
