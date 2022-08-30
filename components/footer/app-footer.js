@@ -2,31 +2,46 @@ import React from "react";
 import styles from "../../styles/components/app-footer.module.scss";
 import { useTranslation } from "next-i18next";
 import Link from "components/Link";
+import { useRouter } from "next/router";
 
 const __TABS__ = [
     {
         key: "about_us",
         i18nKey: "tab.about_us",
         path: "/",
-        onClick: () => {},
+        onClick: ({ router }) => {
+            router.push("/");
+        },
     },
     {
         key: "terms_of_service",
         i18nKey: "tab.terms_of_service",
         path: "/terms_of_service",
-        onClick: () => {},
+        onClick: () => {
+            window.open(
+                "https://damoa7989.notion.site/7989-8c05ce548ab34699a072d84d770fd51c",
+                "_blank"
+            );
+        },
     },
     {
         key: "privacy_policy",
         i18nKey: "tab.privacy_policy",
         path: "/privacy_policy",
-        onClick: () => {},
+        onClick: () => {
+            window.open(
+                "https://damoa7989.notion.site/7989-c26ba8d9f3a74ebd87e19026cf0fc260",
+                "_blank"
+            );
+        },
     },
     {
         key: "service_center",
         i18nKey: "tab.service_center",
         path: "/service_center",
-        onClick: () => {},
+        onClick: ({ router }) => {
+            router.push("/service_center");
+        },
     },
 ];
 
@@ -63,13 +78,16 @@ const __SNS__ = [
 
 const AppFooter = () => {
     const { t } = useTranslation("common");
+    const router = useRouter();
 
     return (
         <footer className={styles.container}>
             <ul className={styles.tabs_list}>
                 {__TABS__.map((tab, idx) => (
                     <li key={tab.key} className={styles.tabs_list_item}>
-                        <Link href={tab.path}>{t(tab.i18nKey)}</Link>
+                        <span onClick={() => tab.onClick({ router })}>
+                            {t(tab.i18nKey)}
+                        </span>
                     </li>
                 ))}
             </ul>
