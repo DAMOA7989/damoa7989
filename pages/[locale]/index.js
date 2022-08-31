@@ -42,10 +42,10 @@ export default function Home() {
 
         observer.observe(serviceRef.current);
         observer.observe(portfolioRef.current);
-        return () => {
-            observer.unobserve(serviceRef.current);
-            observer.unobserve(portfolioRef.current);
-        };
+        // return () => {
+        //     observer.unobserve(serviceRef.current);
+        //     observer.unobserve(portfolioRef.current);
+        // };
     }, []);
 
     return (

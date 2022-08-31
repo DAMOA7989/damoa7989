@@ -31,12 +31,6 @@
     }
 }
 
-.menu_button {
-    &:after {
-        transition: mask-image 0.2s;
-    }
-}
-
 .hamburger {
     width: 30px;
     height: 30px;
@@ -72,6 +66,51 @@
         mask-position: center;
         mask-size: contain;
         background-color: $black_color;
+    }
+}
+
+.menu_button {
+    width: 24px;
+    height: 24px;
+    position: relative;
+
+    > div {
+        transition: all 0.3s;
+        position: absolute;
+    }
+}
+
+.show {
+    > div {
+        width: 100%;
+        height: 1.5px;
+        background-color: black;
+
+        &:nth-child(1) {
+            top: 8px;
+        }
+
+        &:nth-child(2) {
+            top: 16px;
+        }
+    }
+}
+
+.hidden {
+    > div {
+        width: 100%;
+        height: 1.5px;
+        background-color: black;
+
+        &:nth-child(1) {
+            top: 12px;
+            transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            top: 12px;
+            transform: rotate(-45deg);
+        }
     }
 }
 

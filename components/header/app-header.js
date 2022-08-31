@@ -49,10 +49,13 @@ const AppHeader = () => {
             <div className="menu">
                 <div
                     className={`${
-                        menuVisibility ? styles.close : styles.hamburger
+                        menuVisibility ? styles.hidden : styles.show
                     } ${styles.menu_button}`}
                     onClick={() => setMenuVisibility(!menuVisibility)}
-                />
+                >
+                    <div />
+                    <div />
+                </div>
                 {menuVisibility && (
                     <nav className={`${styles.menu_nav}`}>
                         <ul className={styles.menu_nav_list}>
