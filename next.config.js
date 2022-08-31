@@ -6,6 +6,14 @@ const nextConfig = {
     swcMinify: true,
     // i18n,
     trailingSlash: true,
+    experimental: {
+        images: {
+            allowFutureImage: true,
+        },
+    },
+    images: {
+        domains: ["user-images.githubusercontent.com"],
+    },
     webpack5: true,
     webpack: (config) => {
         config.resolve.fallback = { fs: false };

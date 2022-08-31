@@ -2,11 +2,10 @@ import React from "react";
 import styles from "styles/pages/index.module.scss";
 import AppLayout from "../../components/layout/app-layout";
 import Head from "next/head";
+import ImageNative from "next/future/image";
 import Image from "next/image";
 import { useTranslation, Trans } from "next-i18next";
 import { getStaticPaths, makeStaticProps } from "../../lib/getStatic";
-import imageIntroduction00 from "public/images/common/introduction.00.png";
-import imageIntroduction01 from "public/images/common/introduction.01.png";
 import imagePlayStore from "public/images/common/play.store.webp";
 import imageMunchSkill from "public/images/common/munchskill.svg";
 import imageOrbitBridge from "public/images/common/orbitbridge.svg";
@@ -60,27 +59,35 @@ export default function Home() {
                         parent={"p"}
                         i18nKey={"text.index.introduction.00"}
                     />
-                    <Image
-                        className={styles.image}
-                        src={imageIntroduction00}
-                        alter="Picture of introduction"
-                        layout="responsive"
-                        placeholder="blur"
-                        priority
-                    />
+                    <div className={styles.image_container}>
+                        <ImageNative
+                            src={
+                                "https://user-images.githubusercontent.com/24651852/187587888-ce8e529f-ecaf-46c7-ae13-1b67f6952292.jpg"
+                            }
+                            alter="Picture of introduction"
+                            width={350}
+                            height={466}
+                            priority
+                        />
+                    </div>
+
                     <Trans
                         t={t}
                         parent={"p"}
                         i18nKey={"text.index.introduction.01"}
                     />
-                    <Image
-                        className={styles.image}
-                        src={imageIntroduction01}
-                        alter="Picture of introduction"
-                        layout="responsive"
-                        placeholder="blur"
-                        priority
-                    />
+                    <div className={styles.image_container}>
+                        <ImageNative
+                            className={styles.image}
+                            src={
+                                "https://user-images.githubusercontent.com/24651852/187587903-559e245c-15de-4aa0-8bf4-23cae3236e06.jpg"
+                            }
+                            alter="Picture of introduction"
+                            width={350}
+                            height={262}
+                            priority
+                        />
+                    </div>
                     <Trans
                         t={t}
                         parent={"p"}
