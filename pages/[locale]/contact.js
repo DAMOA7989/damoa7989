@@ -10,11 +10,21 @@ export { getStaticPaths, getStaticProps };
 
 const Contact = () => {
     const { t } = useTranslation();
+    const mapRef = React.useRef(null);
 
     React.useEffect(() => {
-        const map = new naver.maps.Map("map", {
-            center: new naver.maps.LatLng(37.5075512, 127.060561),
-            zoom: 17,
+        kakao.maps.load(() => {
+            const map = new kakao.maps.Map(mapRef.current, {
+                center: new kakao.maps.LatLng(37.507551, 127.060561),
+            });
+            const clusterer = new kakao.maps.MarkerClusterer({
+                map: map,
+            });
+            clusterer.addMarker(
+                new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(37.507551, 127.060561),
+                })
+            );
         });
     }, []);
 
@@ -30,6 +40,7 @@ const Contact = () => {
                     </h5>
                     <div className={styles.map_container}>
                         <div
+                            ref={mapRef}
                             id="map"
                             className={styles.map}
                             style={{ width: "100%", height: "100%" }}

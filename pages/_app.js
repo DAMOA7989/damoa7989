@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
         <>
             <Script
                 strategy="beforeInteractive"
-                src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_WEB_DYNAMIC_MAP_CLIENT_ID}`}
+                src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_KEY}&autoload=false&libraries=clusterer`}
             ></Script>
             <Component {...pageProps} />
         </>
