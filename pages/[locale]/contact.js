@@ -19,7 +19,7 @@ const Contact = () => {
     }, []);
 
     return (
-        <AppLayout>
+        <AppLayout title={t("tab.contact")}>
             <Head>
                 <title>DAMOA7989: Contact</title>
             </Head>

@@ -12,9 +12,9 @@ const ServiceAndPortfolio = () => {
     const { t } = useTranslation();
 
     return (
-        <AppLayout>
+        <AppLayout title={t("tab.service_and_portfolio")}>
             <Head>
-                <title>DAMOA7989 Service and Portfolio</title>
+                <title>DAMOA7989: Service and Portfolio</title>
             </Head>
             <div
                 id="service"
