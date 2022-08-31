@@ -1,0 +1,58 @@
+@import "../include.scss";
+
+.container {
+}
+
+.head_quarter {
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.map_container {
+    // &::after {
+    //     content: "";
+    //     display: block;
+    //     padding-bottom: 100%;
+    // }
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-sizing: content-box;
+    overflow: hidden;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.map {
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.address,
+.phone_number {
+    display: flex;
+    gap: 20px;
+
+    &:not(&:last-child) {
+        margin-bottom: 12px;
+    }
+
+    > span {
+        &:nth-child(1) {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        &:nth-child(2) {
+            font-size: 12px;
+            font-weight: 400;
+            color: $gunmetal_color;
+            position: relative;
+            top: 2px;
+        }
+    }
+}
