@@ -1,3 +1,4 @@
+/*global kakao*/
 import React from "react";
 import styles from "styles/pages/contact.module.scss";
 import Head from "next/head";
@@ -12,21 +13,35 @@ const Contact = () => {
     const { t } = useTranslation();
     const mapRef = React.useRef(null);
 
+    const [mapLoaded, setMapLoaded] = React.useState(false);
+
     React.useEffect(() => {
-        kakao.maps.load(() => {
-            const map = new kakao.maps.Map(mapRef.current, {
-                center: new kakao.maps.LatLng(37.507551, 127.060561),
+        const $script = window.document.createElement("script");
+        $script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_KEY}&autoload=false&libraries=clusterer`;
+        $script.addEventListener("load", () => setMapLoaded(true));
+        window.document.body.appendChild($script);
+    }, []);
+
+    React.useEffect(() => {
+        if (!mapLoaded) return;
+
+        window.kakao.maps.load(() => {
+            const map = new window.kakao.maps.Map(mapRef.current, {
+                center: new window.kakao.maps.LatLng(37.507551, 127.060561),
             });
-            const clusterer = new kakao.maps.MarkerClusterer({
+            const clusterer = new window.kakao.maps.MarkerClusterer({
                 map: map,
             });
             clusterer.addMarker(
-                new kakao.maps.Marker({
-                    position: new kakao.maps.LatLng(37.507551, 127.060561),
+                new window.kakao.maps.Marker({
+                    position: new window.kakao.maps.LatLng(
+                        37.507551,
+                        127.060561
+                    ),
                 })
             );
         });
-    }, []);
+    }, [mapLoaded]);
 
     return (
         <AppLayout title={t("tab.contact")}>
