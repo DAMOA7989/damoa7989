@@ -20,6 +20,20 @@ export default function Home() {
     const router = useRouter();
     const serviceRef = React.useRef(null);
     const portfolioRef = React.useRef(null);
+    const introductionImageRefs = [React.useRef(null), React.useRef(null)];
+
+    React.useEffect(() => {
+        if (
+            !introductionImageRefs[0].current ||
+            !introductionImageRefs[1].current
+        )
+            return;
+
+        introductionImageRefs[0].current.children[0].src =
+            "https://firebasestorage.googleapis.com/v0/b/damoa7989-35f5a.appspot.com/o/index%2Fintroduction.00.png?alt=media&token=58b3f74e-9671-4fe3-a735-dd5e823add16";
+        introductionImageRefs[1].current.children[0].src =
+            "https://firebasestorage.googleapis.com/v0/b/damoa7989-35f5a.appspot.com/o/index%2Fintroduction.01.png?alt=media&token=faec6578-2d3e-44a9-91de-a8aa871fe2ba";
+    }, [introductionImageRefs[0].current, introductionImageRefs[1].current]);
 
     React.useEffect(() => {
         if (!serviceRef.current || !portfolioRef.current) return;
@@ -59,14 +73,15 @@ export default function Home() {
                         parent={"p"}
                         i18nKey={"text.index.introduction.00"}
                     />
-                    <div className={styles.image_container}>
+                    <div
+                        ref={introductionImageRefs[0]}
+                        className={styles.image_container}
+                    >
                         <ImageNative
-                            src={
-                                "https://user-images.githubusercontent.com/24651852/187587888-ce8e529f-ecaf-46c7-ae13-1b67f6952292.jpg"
-                            }
+                            src={""}
                             alter="Picture of introduction"
                             width={350}
-                            height={466}
+                            height={220}
                             priority
                         />
                     </div>
@@ -76,15 +91,15 @@ export default function Home() {
                         parent={"p"}
                         i18nKey={"text.index.introduction.01"}
                     />
-                    <div className={styles.image_container}>
+                    <div
+                        ref={introductionImageRefs[1]}
+                        className={styles.image_container}
+                    >
                         <ImageNative
-                            className={styles.image}
-                            src={
-                                "https://user-images.githubusercontent.com/24651852/187587903-559e245c-15de-4aa0-8bf4-23cae3236e06.jpg"
-                            }
+                            src={""}
                             alter="Picture of introduction"
                             width={350}
-                            height={262}
+                            height={201}
                             priority
                         />
                     </div>
