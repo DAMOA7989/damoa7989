@@ -1,0 +1,67 @@
+@import "../include.scss";
+
+.container {
+    position: relative;
+}
+
+.common_select {
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid $link_water_color;
+    display: inline-flex;
+    width: 100%;
+    height: 52px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+
+    &::after {
+        content: url("/images/icon/arrow_bottom.svg");
+        transition: transform 0.2s;
+        position: relative;
+        top: 3px;
+    }
+}
+
+.common_select_active {
+    border: 1px solid $black_russian_color;
+
+    &::after {
+        transform: rotate(180deg);
+        position: relative;
+        top: -3px;
+    }
+}
+
+.value {
+    color: $auro_metal_saurus_color;
+}
+
+.placeholder {
+    color: $auro_metal_saurus_color;
+}
+
+.dropdown {
+    position: absolute;
+    top: 57px;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+.dropdown_ul {
+    border: 1px solid $auro_metal_saurus_color;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: white;
+}
+
+.dropdown_ul_li {
+}
+
+.dropdown_ul_li_container {
+}
