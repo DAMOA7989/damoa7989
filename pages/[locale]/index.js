@@ -18,6 +18,7 @@ export { getStaticPaths, getStaticProps };
 export default function Home() {
     const { t } = useTranslation("common");
     const router = useRouter();
+    const corporationDescRef = React.useRef(null);
     const serviceRef = React.useRef(null);
     const portfolioRef = React.useRef(null);
     const introductionImageRefs = [React.useRef(null), React.useRef(null)];
@@ -55,6 +56,7 @@ export default function Home() {
 
         observer.observe(serviceRef.current);
         observer.observe(portfolioRef.current);
+        observer.observe(corporationDescRef.current);
         // return () => {
         //     observer.unobserve(serviceRef.current);
         //     observer.unobserve(portfolioRef.current);
@@ -77,12 +79,11 @@ export default function Home() {
                         ref={introductionImageRefs[0]}
                         className={styles.image_container}
                     >
-                        <ImageNative
+                        <img
                             src={""}
                             alter="Picture of introduction"
                             width={350}
                             height={220}
-                            priority
                         />
                     </div>
 
@@ -95,12 +96,11 @@ export default function Home() {
                         ref={introductionImageRefs[1]}
                         className={styles.image_container}
                     >
-                        <ImageNative
+                        <img
                             src={""}
                             alter="Picture of introduction"
                             width={350}
                             height={201}
-                            priority
                         />
                     </div>
                     <Trans
@@ -112,94 +112,119 @@ export default function Home() {
                         }}
                     />
                 </article>
-                <article ref={serviceRef} className={styles.service}>
-                    <h3 className={styles.title}>{t("title.index.service")}</h3>
-                    <div className="slider">
-                        <div className="slides">
-                            <div className="slide" onClick={() => {}}>
-                                <div
-                                    className={`${styles.slide_image} slide_image`}
-                                >
-                                    <Image
-                                        src={imagePlayStore}
-                                        layout="responsive"
-                                        placeholder="blur"
+                <div className={styles.corporation}>
+                    <p
+                        ref={corporationDescRef}
+                        className={styles.corporation_desc}
+                    >
+                        <Trans
+                            t={t}
+                            i18nKey={"text.index.corporation_desc"}
+                            components={{
+                                bold: (
+                                    <span
+                                        style={{
+                                            fontWeight: "bold",
+                                            fontSize: "18px",
+                                        }}
                                     />
-                                </div>
-                                <div className="description">
-                                    {t("text.service.00")}
+                                ),
+                            }}
+                        />
+                    </p>
+                    <article ref={serviceRef} className={styles.service}>
+                        <h3 className={styles.title}>
+                            {t("title.index.service")}
+                        </h3>
+                        <div className="slider">
+                            <div className="slides">
+                                <div className="slide" onClick={() => {}}>
+                                    <div
+                                        className={`${styles.slide_image} slide_image`}
+                                    >
+                                        <Image
+                                            src={imagePlayStore}
+                                            layout="responsive"
+                                            placeholder="blur"
+                                        />
+                                    </div>
+                                    <div className="description">
+                                        {t("text.service.00")}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <button
-                        className={styles.detail_btn}
-                        onClick={() => {
-                            router.push("/service_and_portfolio/#service");
-                        }}
-                    >
-                        {t("btn.detail")}
-                    </button>
-                </article>
-                <article ref={portfolioRef} className={styles.portfolio}>
-                    <h3 className={styles.title}>
-                        {t("title.index.portfolio")}
-                    </h3>
-                    <div className="slider">
-                        <div className="slides">
-                            <div className="slide" onClick={() => {}}>
-                                <div
-                                    className={`${styles.slide_image} slide_image`}
-                                >
-                                    <Image
-                                        src={imageMunchSkill}
-                                        layout="responsive"
-                                        // placeholder="blur"
-                                    />
+                        <button
+                            className={styles.detail_btn}
+                            onClick={() => {
+                                router.push("/service_and_portfolio/#service");
+                            }}
+                        >
+                            {t("btn.detail")}
+                        </button>
+                    </article>
+                    <article ref={portfolioRef} className={styles.portfolio}>
+                        <h3 className={styles.title}>
+                            {t("title.index.portfolio")}
+                        </h3>
+                        <div className="slider">
+                            <div className="slides">
+                                <div className="slide" onClick={() => {}}>
+                                    <div
+                                        className={`${styles.slide_image} slide_image`}
+                                    >
+                                        <Image
+                                            src={imageMunchSkill}
+                                            layout="responsive"
+                                            // placeholder="blur"
+                                        />
+                                    </div>
+                                    <div className="description">
+                                        {t("text.portfolio.00")}
+                                    </div>
                                 </div>
-                                <div className="description">
-                                    {t("text.portfolio.00")}
+                                <div className="slide" onClick={() => {}}>
+                                    <div
+                                        className={`${styles.slide_image} slide_image`}
+                                    >
+                                        <Image
+                                            src={imageOrbitBridge}
+                                            layout="responsive"
+                                            // placeholder="blur"
+                                        />
+                                    </div>
+                                    <div className="description">
+                                        {t("text.portfolio.01")}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="slide" onClick={() => {}}>
-                                <div
-                                    className={`${styles.slide_image} slide_image`}
-                                >
-                                    <Image
-                                        src={imageOrbitBridge}
-                                        layout="responsive"
-                                        // placeholder="blur"
-                                    />
-                                </div>
-                                <div className="description">
-                                    {t("text.portfolio.01")}
-                                </div>
-                            </div>
-                            <div className="slide" onClick={() => {}}>
-                                <div
-                                    className={`${styles.slide_image} slide_image`}
-                                >
-                                    <Image
-                                        src={imageSoleX}
-                                        layout="responsive"
-                                        // placeholder="blur"
-                                    />
-                                </div>
-                                <div className="description">
-                                    {t("text.portfolio.02")}
+                                <div className="slide" onClick={() => {}}>
+                                    <div
+                                        className={`${styles.slide_image} slide_image`}
+                                    >
+                                        <Image
+                                            src={imageSoleX}
+                                            layout="responsive"
+                                            // placeholder="blur"
+                                        />
+                                    </div>
+                                    <div className="description">
+                                        {t("text.portfolio.02")}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <button
-                        className={styles.detail_btn}
-                        onClick={() => {
-                            router.push("/service_and_portfolio/#portfolio");
-                        }}
-                    >
-                        {t("btn.detail")}
-                    </button>
-                </article>
+                        <button
+                            className={styles.detail_btn}
+                            onClick={() => {
+                                router.push(
+                                    "/service_and_portfolio/#portfolio"
+                                );
+                            }}
+                        >
+                            {t("btn.detail")}
+                        </button>
+                    </article>
+                </div>
             </div>
         </AppLayout>
     );

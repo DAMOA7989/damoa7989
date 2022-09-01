@@ -57,14 +57,17 @@ const __SNS__ = [
         key: "medium",
         i18nKey: "sns.medium",
         onClick: () => {
-            window.alert("We are ready.");
+            window.open("https://medium.com/@damoa7989", "_blank");
         },
     },
     {
         key: "facebook",
         i18nKey: "sns.facebook",
         onClick: () => {
-            window.alert("We are ready.");
+            window.open(
+                "https://www.facebook.com/Damoa7989-100932879429387",
+                "_blank"
+            );
         },
     },
     {
