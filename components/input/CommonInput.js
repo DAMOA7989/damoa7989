@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "styles/components/common_input.module.scss";
 
-const CommonInput = ({ placeholder, value, onChange }) => {
+const CommonInput = ({ placeholder, value, onChange, className }) => {
     return (
-        <div className={styles.common_input}>
+        <div className={`${styles.common_input} ${className}`}>
             {!Boolean(value) && (
                 <span className={styles.placeholder}>{placeholder}</span>
             )}

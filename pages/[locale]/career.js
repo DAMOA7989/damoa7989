@@ -52,7 +52,7 @@ const Career = () => {
                         ]}
                     />
                     <CommonInput
-                        placeholder={t("placeholder.career.search")}
+                        placeholder={t("placeholder.search")}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
