@@ -56,9 +56,18 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 40px;
+    position: sticky;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 58px;
+    background-color: white;
+    z-index: 1000;
+    top: 0px;
 }
 
 .corporation {
+    margin-bottom: 120px;
 }
 
 .corporation_desc {
@@ -68,22 +77,28 @@
     opacity: 0;
     position: relative;
     top: 100px;
-    transition: opacity 1.5s, top 1.5s;
+    transition: opacity 1s, top 1s;
 }
 
 .service {
     padding-bottom: 80px;
+}
+
+.service_fade {
     opacity: 0;
     position: relative;
     top: 100px;
-    transition: opacity 1.5s, top 1.5s;
+    transition: opacity 1s, top 1s;
 }
 
 .portfolio {
+}
+
+.portfolio_fade {
     opacity: 0;
     position: relative;
     top: 100px;
-    transition: opacity 1.5s, top 1.5s;
+    transition: opacity 1s, top 1s;
 }
 
 .detail_btn {
@@ -99,4 +114,56 @@
         top: 4px;
         margin-left: 9px;
     }
+}
+
+.team {
+}
+
+.desc {
+    margin-bottom: 80px;
+}
+
+.desc_main {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 24px;
+}
+
+.desc_sub {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.people {
+    opacity: 0;
+    position: relative;
+    transform: scale(0.9);
+    transition: opacity 1s, transform 1s;
+}
+
+.card {
+    box-shadow: $common_box_shadow;
+    padding: 20px;
+}
+
+.indicator {
+}
+
+.people_card_image_container {
+    margin-bottom: 40px;
+}
+
+.people_card_text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 12px;
+}
+
+.people_card_position {
+    font-size: 12px;
+    font-weight: 400;
+    color: $auro_metal_saurus_color;
 }

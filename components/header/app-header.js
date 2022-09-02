@@ -11,12 +11,12 @@ const __TABS__ = [
     //     path: "/",
     //     onClick: () => {},
     // },
-    {
-        key: "team_culture",
-        i18nKey: "tab.team_culture",
-        path: "/team_culture",
-        onClick: () => {},
-    },
+    // {
+    //     key: "team_culture",
+    //     i18nKey: "tab.team_culture",
+    //     path: "/team_culture",
+    //     onClick: () => {},
+    // },
     {
         key: "service_and_portfolio",
         i18nKey: "tab.service_and_portfolio",
