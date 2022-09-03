@@ -4,6 +4,7 @@
 }
 
 .faq {
+    margin-bottom: 80px;
 }
 
 .title {
@@ -79,4 +80,32 @@
     border-top: 1px solid $link_water_color;
     border-left: 1px solid $link_water_color;
     border-right: 1px solid $link_water_color;
+}
+
+.contact_us {
+}
+
+.form {
+}
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.input_field {
+}
+
+.search_field {
+}
+
+.input_multiline_field {
+}
+
+.field_title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 8px;
 }

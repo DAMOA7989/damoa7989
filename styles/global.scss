@@ -52,3 +52,18 @@
         }
     }
 }
+
+.common-button {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: $link_water_color;
+
+    &.active {
+        &.primary {
+            background-color: $primary_color;
+            color: white;
+        }
+    }
+}
