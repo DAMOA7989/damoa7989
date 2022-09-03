@@ -12,8 +12,105 @@ export { getStaticPaths, getStaticProps };
 const ServiceCenter = () => {
     const { t } = useTranslation();
     const [search, setSearch] = React.useState("");
+    const [_items, _setItems] = React.useState([]);
     const [items, setItems] = React.useState([]);
     const [activeItemIdx, setActiveItemIdx] = React.useState(-1);
+
+    React.useEffect(() => {
+        _setItems([
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 1`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 2`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 3`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 4`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 5`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 6`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+            {
+                question: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.? 7`,
+                answer: `Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Enim
+            lorem hac a ultricies. Id ornare
+            turpis vulputate enim sed magna sit.
+            A id cursus dolor urna. Aliquam diam
+            integer vitae eget.`,
+            },
+        ]);
+    }, []);
+
+    React.useEffect(() => {
+        let curItems = _items;
+
+        const convertedSearch = (search || "")
+            .toLowerCase()
+            .trim()
+            .replaceAll(" ", "");
+        curItems = (curItems || []).filter((item) => {
+            const question = item.question;
+            const convertedQuestion = (question || "")
+                .toLowerCase()
+                .trim()
+                .replaceAll(" ", "");
+
+            if (convertedQuestion.includes(convertedSearch)) return true;
+            return false;
+        });
+
+        setItems(curItems);
+    }, [_items, search]);
 
     return (
         <AppLayout title={t("tab.service_center")}>
@@ -32,7 +129,7 @@ const ServiceCenter = () => {
                         onChange={(event) => setSearch(event.target.value)}
                     />
                     <ul className={styles.items}>
-                        {[1, 2, 3, 4, 5, 6, 7].map((item, idx) => (
+                        {items.map((item, idx) => (
                             <li key={idx} className={styles.items_item}>
                                 <div className={styles.items_item_container}>
                                     <div
@@ -47,10 +144,7 @@ const ServiceCenter = () => {
                                             }
                                         }}
                                     >
-                                        <span>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit.?
-                                        </span>
+                                        <span>{item.question}</span>
                                         <div
                                             className={`${styles.arrow} ${
                                                 activeItemIdx === idx &&
@@ -64,12 +158,7 @@ const ServiceCenter = () => {
                                                 styles.items_item_container_answer
                                             }
                                         >
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Enim
-                                            lorem hac a ultricies. Id ornare
-                                            turpis vulputate enim sed magna sit.
-                                            A id cursus dolor urna. Aliquam diam
-                                            integer vitae eget.
+                                            {item.answer}
                                         </div>
                                     )}
                                 </div>
