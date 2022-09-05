@@ -6,6 +6,7 @@ import { getStaticPaths, makeStaticProps } from "../../lib/getStatic";
 import { useTranslation, Trans } from "next-i18next";
 import CommonInput from "components/input/CommonInput";
 import CommonSelect from "components/input/CommonSelect";
+import axios from "axios";
 
 const getStaticProps = makeStaticProps(["common"]);
 export { getStaticPaths, getStaticProps };
@@ -89,7 +90,35 @@ const ServiceCenter = () => {
         setCanSubmit(true);
     }, [firstName, lastName, email, company, region, about]);
 
-    const onSubmitHandler = () => {};
+    const onSubmitHandler = async () => {
+        if (window.confirm(t("alert.service_center.confirm"))) {
+            try {
+                const res = await axios.post("/api/send_call_email", {
+                    subject: "DAMOA7989 request call",
+                    firstName,
+                    lastName,
+                    email,
+                    company,
+                    region: region?.key,
+                    about: about?.key,
+                    message,
+                });
+            } catch (e) {}
+
+            if (res.status === 200) {
+                window.alert("Success!");
+                setFirstName("");
+                setLastName("");
+                setEmail("");
+                setCompany("");
+                setRegion(null);
+                setAbout(null);
+                setMessage("");
+            } else if (res.status === 500) {
+                window.alert("Fail...");
+            }
+        }
+    };
 
     return (
         <AppLayout title={t("tab.service_center")}>
@@ -159,6 +188,9 @@ const ServiceCenter = () => {
                     <h3 className={styles.title}>
                         {t("title.service_center.contact_us")}
                     </h3>
+                    <p className={styles.desc}>
+                        {t("text.service_center.call.desc")}
+                    </p>
                     <div className={styles.form}>
                         <div className={styles.fields}>
                             <div className={styles.input_field}>
