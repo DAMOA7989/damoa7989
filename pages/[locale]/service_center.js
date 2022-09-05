@@ -3,7 +3,7 @@ import styles from "styles/pages/service_center.module.scss";
 import AppLayout from "components/layout/app-layout";
 import Head from "next/head";
 import { getStaticPaths, makeStaticProps } from "../../lib/getStatic";
-import { useTranslation } from "next-i18next";
+import { useTranslation, Trans } from "next-i18next";
 import CommonInput from "components/input/CommonInput";
 import CommonSelect from "components/input/CommonSelect";
 
@@ -28,74 +28,32 @@ const ServiceCenter = () => {
     React.useEffect(() => {
         _setItems([
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 1`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.00.question",
+                answer: "text.service_center.faq.00.answer",
             },
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 2`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.01.question",
+                answer: "text.service_center.faq.01.answer",
             },
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 3`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.02.question",
+                answer: "text.service_center.faq.02.answer",
             },
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 4`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.03.question",
+                answer: "text.service_center.faq.03.answer",
             },
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 5`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.04.question",
+                answer: "text.service_center.faq.04.answer",
             },
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 6`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.05.question",
+                answer: "text.service_center.faq.05.answer",
             },
             {
-                question: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.? 7`,
-                answer: `Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Enim
-            lorem hac a ultricies. Id ornare
-            turpis vulputate enim sed magna sit.
-            A id cursus dolor urna. Aliquam diam
-            integer vitae eget.`,
+                question: "text.service_center.faq.06.question",
+                answer: "text.service_center.faq.06.answer",
             },
         ]);
     }, []);
@@ -108,7 +66,7 @@ const ServiceCenter = () => {
             .trim()
             .replaceAll(" ", "");
         curItems = (curItems || []).filter((item) => {
-            const question = item.question;
+            const question = t(item.question);
             const convertedQuestion = (question || "")
                 .toLowerCase()
                 .trim()
@@ -131,9 +89,7 @@ const ServiceCenter = () => {
         setCanSubmit(true);
     }, [firstName, lastName, email, company, region, about]);
 
-    const onSubmitHandler = () => {
-        console.log("Submit");
-    };
+    const onSubmitHandler = () => {};
 
     return (
         <AppLayout title={t("tab.service_center")}>
@@ -167,7 +123,10 @@ const ServiceCenter = () => {
                                             }
                                         }}
                                     >
-                                        <span>{item.question}</span>
+                                        <Trans
+                                            parent="span"
+                                            i18nKey={item.question}
+                                        />
                                         <div
                                             className={`${styles.arrow} ${
                                                 activeItemIdx === idx &&
@@ -181,7 +140,14 @@ const ServiceCenter = () => {
                                                 styles.items_item_container_answer
                                             }
                                         >
-                                            {item.answer}
+                                            <Trans
+                                                i18nKey={item.answer}
+                                                components={{
+                                                    email: (
+                                                        <a href="mailto:recruit@damoa7989.xyz" />
+                                                    ),
+                                                }}
+                                            />
                                         </div>
                                     )}
                                 </div>
@@ -262,6 +228,17 @@ const ServiceCenter = () => {
                                     )}
                                     value={region}
                                     onChange={(item) => setRegion(item)}
+                                    datas={[
+                                        {
+                                            key: "republic_of_korea",
+                                            i18nKey:
+                                                "title.nation.republic_of_korea",
+                                        },
+                                        {
+                                            key: "usa",
+                                            i18nKey: "title.nation.usa",
+                                        },
+                                    ]}
                                 />
                             </div>
                             <div className={styles.select_field}>
@@ -274,6 +251,13 @@ const ServiceCenter = () => {
                                     )}
                                     value={about}
                                     onChange={(item) => setAbout(item)}
+                                    datas={[
+                                        {
+                                            key: "sarammoa",
+                                            i18nKey:
+                                                "title.corporation.sarammoa",
+                                        },
+                                    ]}
                                 />
                             </div>
                             <div className={styles.input_multiline_field}>
