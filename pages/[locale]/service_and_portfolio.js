@@ -87,7 +87,7 @@ const ServiceAndPortfolio = () => {
                 </h5>
                 <div className={styles.portfolio_items}>
                     {portfolioItems.map((item) => (
-                        <div>
+                        <div key={item.key}>
                             <div
                                 key={item.key}
                                 className={styles.img_container}

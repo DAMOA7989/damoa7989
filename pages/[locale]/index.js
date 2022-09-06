@@ -274,7 +274,10 @@ export default function Home() {
                         <div className="slider">
                             <div className="slides">
                                 {peopleItems.map((item) => (
-                                    <div className={`${styles.card} slide`}>
+                                    <div
+                                        key={item.key}
+                                        className={`${styles.card} slide`}
+                                    >
                                         <div
                                             className={`${styles.image_container} ${styles.people_card_image_container}`}
                                         >

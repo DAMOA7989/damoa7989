@@ -1,0 +1,19 @@
+[debug] [2022-09-06T04:53:44.127Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T04:53:44.128Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-09-06T04:53:44.128Z] CLI Version:   11.8.0
+[debug] [2022-09-06T04:53:44.129Z] Platform:      linux
+[debug] [2022-09-06T04:53:44.129Z] Node Version:  v16.17.0
+[debug] [2022-09-06T04:53:44.129Z] Time:          Tue Sep 06 2022 13:53:44 GMT+0900 (대한민국 표준시)
+[debug] [2022-09-06T04:53:44.129Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T04:53:44.172Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T04:53:44.172Z] > authorizing via signed-in user (yoondev3434@gmail.com)
+[debug] [2022-09-06T04:53:44.173Z] [iam] checking project damoa7989-35f5a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-06T04:53:44.174Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/damoa7989-35f5a:testIamPermissions [none]
+[debug] [2022-09-06T04:53:44.174Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/damoa7989-35f5a:testIamPermissions x-goog-quota-user=projects/damoa7989-35f5a
+[debug] [2022-09-06T04:53:44.174Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/damoa7989-35f5a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-06T04:53:44.559Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/damoa7989-35f5a:testIamPermissions 200
+[debug] [2022-09-06T04:53:44.560Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/damoa7989-35f5a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-06T04:53:44.563Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/damoa7989-35f5a [none]
+[debug] [2022-09-06T04:53:45.051Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/damoa7989-35f5a 200
+[debug] [2022-09-06T04:53:45.052Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/damoa7989-35f5a {"projectId":"damoa7989-35f5a","projectNumber":"650324945417","displayName":"damoa7989","name":"projects/damoa7989-35f5a","resources":{"hostingSite":"damoa7989-35f5a","storageBucket":"damoa7989-35f5a.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_a287b21a-2fb9-4dd3-b894-2400ca1bc40a"}
