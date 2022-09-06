@@ -55,9 +55,12 @@
 .common-button {
     border-radius: 8px;
     padding: 8px 12px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     background-color: $link_water_color;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 
     &.active {
         &.primary {

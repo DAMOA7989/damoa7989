@@ -7,6 +7,7 @@ import { useTranslation, Trans } from "next-i18next";
 import CommonInput from "components/input/CommonInput";
 import CommonSelect from "components/input/CommonSelect";
 import axios from "axios";
+import { CircularProgress } from "@mui/material";
 
 const getStaticProps = makeStaticProps(["common"]);
 export { getStaticPaths, getStaticProps };
@@ -25,6 +26,7 @@ const ServiceCenter = () => {
     const [about, setAbout] = React.useState(null);
     const [message, setMessage] = React.useState("");
     const [canSubmit, setCanSubmit] = React.useState(false);
+    const [isLoadingSubmit, setIsLoadingSubmit] = React.useState(false);
 
     React.useEffect(() => {
         _setItems([
@@ -81,6 +83,7 @@ const ServiceCenter = () => {
     }, [_items, search]);
 
     React.useEffect(() => {
+        if (isLoadingSubmit) return setCanSubmit(false);
         if (!Boolean(firstName)) return setCanSubmit(false);
         if (!Boolean(lastName)) return setCanSubmit(false);
         if (!Boolean(email)) return setCanSubmit(false);
@@ -92,8 +95,10 @@ const ServiceCenter = () => {
 
     const onSubmitHandler = async () => {
         if (window.confirm(t("alert.service_center.confirm"))) {
+            setIsLoadingSubmit(true);
+            let res = null;
             try {
-                const res = await axios.post("/api/send_call_email", {
+                res = await axios.post("/api/send_call_email", {
                     subject: "DAMOA7989 request call",
                     firstName,
                     lastName,
@@ -117,6 +122,8 @@ const ServiceCenter = () => {
             } else if (res.status === 500) {
                 window.alert("Fail...");
             }
+
+            setIsLoadingSubmit(false);
         }
     };
 
@@ -311,10 +318,14 @@ const ServiceCenter = () => {
                         <button
                             className={`common-button primary ${
                                 canSubmit && "active"
-                            }`}
+                            } ${isLoadingSubmit && "pending"}`}
                             onClick={canSubmit ? onSubmitHandler : null}
                         >
-                            {t("btn.submit")}
+                            {isLoadingSubmit ? (
+                                <CircularProgress size={20} />
+                            ) : (
+                                t("btn.submit")
+                            )}
                         </button>
                     </div>
                 </div>

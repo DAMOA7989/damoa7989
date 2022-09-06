@@ -10,6 +10,9 @@
         "update:locale": "node ./scripts/updateLocale.js"
     },
     "dependencies": {
+        "@emotion/react": "^11.10.4",
+        "@emotion/styled": "^11.10.4",
+        "@mui/material": "^5.10.3",
         "firebase": "^9.9.3",
         "i18next": "^21.9.1",
         "next": "^12.2.5",
