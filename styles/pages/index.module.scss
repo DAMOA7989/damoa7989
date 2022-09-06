@@ -144,6 +144,7 @@
 }
 
 .card {
+    transform: scale(0.98);
     box-shadow: $common_box_shadow;
     padding: 20px;
 }
@@ -162,7 +163,7 @@
     margin-bottom: 12px;
 }
 
-.people_card_position {
+.people_card_name_position {
     font-size: 12px;
     font-weight: 400;
     color: $auro_metal_saurus_color;

@@ -15,6 +15,35 @@ import { useRouter } from "next/router";
 const getStaticProps = makeStaticProps(["common"]);
 export { getStaticPaths, getStaticProps };
 
+const portfolioItems = [
+    {
+        key: "munchskill",
+        imgSrc: imageMunchSkill,
+        desc: "text.portfolio.00",
+    },
+    {
+        key: "orbitbridge",
+        imgSrc: imageOrbitBridge,
+        desc: "text.portfolio.01",
+    },
+    {
+        key: "sole-x",
+        imgSrc: imageSoleX,
+        desc: "text.portfolio.02",
+    },
+];
+
+const peopleItems = [
+    {
+        key: "walter",
+        imgPath: "/images/common/index.team.people.walter.png",
+        width: 350,
+        height: 252,
+        cardText: "text.index.people_walter_text",
+        namePosition: "Walter / Founder",
+    },
+];
+
 export default function Home() {
     const { t } = useTranslation("common");
     const router = useRouter();
@@ -194,48 +223,28 @@ export default function Home() {
                         >
                             <div className="slider">
                                 <div className="slides">
-                                    <div className="slide" onClick={() => {}}>
+                                    {portfolioItems.map((item) => (
                                         <div
-                                            className={`${styles.slide_image} slide_image`}
+                                            key={item.key}
+                                            className="slide"
+                                            onClick={() => {}}
                                         >
-                                            <Image
-                                                src={imageMunchSkill}
-                                                layout="responsive"
-                                                // placeholder="blur"
-                                            />
+                                            <div
+                                                className={`${styles.slide_image} slide_image`}
+                                            >
+                                                <Image
+                                                    src={item.imgSrc}
+                                                    layout="responsive"
+                                                />
+                                            </div>
+                                            <div
+                                                className="description"
+                                                style={{ textAlign: "center" }}
+                                            >
+                                                {t(item.desc)}
+                                            </div>
                                         </div>
-                                        <div className="description">
-                                            {t("text.portfolio.00")}
-                                        </div>
-                                    </div>
-                                    <div className="slide" onClick={() => {}}>
-                                        <div
-                                            className={`${styles.slide_image} slide_image`}
-                                        >
-                                            <Image
-                                                src={imageOrbitBridge}
-                                                layout="responsive"
-                                                // placeholder="blur"
-                                            />
-                                        </div>
-                                        <div className="description">
-                                            {t("text.portfolio.01")}
-                                        </div>
-                                    </div>
-                                    <div className="slide" onClick={() => {}}>
-                                        <div
-                                            className={`${styles.slide_image} slide_image`}
-                                        >
-                                            <Image
-                                                src={imageSoleX}
-                                                layout="responsive"
-                                                // placeholder="blur"
-                                            />
-                                        </div>
-                                        <div className="description">
-                                            {t("text.portfolio.02")}
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </div>
                             <button
@@ -262,27 +271,35 @@ export default function Home() {
                         </p>
                     </div>
                     <div ref={peopleRef} className={styles.people}>
-                        <div className={styles.card}>
-                            <div
-                                className={`${styles.image_container} ${styles.people_card_image_container}`}
-                            >
-                                <ImageNative
-                                    src="/images/common/index.team.people.walter.png"
-                                    width={350}
-                                    height={252}
-                                />
+                        <div className="slider">
+                            <div className="slides">
+                                {peopleItems.map((item) => (
+                                    <div className={`${styles.card} slide`}>
+                                        <div
+                                            className={`${styles.image_container} ${styles.people_card_image_container}`}
+                                        >
+                                            <ImageNative
+                                                src={item.imgPath}
+                                                width={item.width}
+                                                height={item.height}
+                                            />
+                                        </div>
+                                        <p className={styles.people_card_text}>
+                                            <Trans
+                                                t={t}
+                                                i18nKey={item.cardText}
+                                            />
+                                        </p>
+                                        <div
+                                            className={styles.people_card_name}
+                                        >
+                                            {item.namePosition}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <p className={styles.people_card_text}>
-                                <Trans
-                                    t={t}
-                                    i18nKey={"text.index.people_walter_text"}
-                                />
-                            </p>
-                            <div className={styles.people_card_position}>
-                                {"Walter / Founder"}
-                            </div>
+                            <div className={styles.indicator}></div>
                         </div>
-                        <div className={styles.indicator}></div>
                     </div>
                 </div>
             </div>
