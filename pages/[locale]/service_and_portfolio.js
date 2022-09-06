@@ -50,14 +50,36 @@ const ServiceAndPortfolio = () => {
             <Head>
                 <title>DAMOA7989: Service and Portfolio</title>
             </Head>
-            <div
-                id="service"
-                className={styles.area}
-                style={{ height: "1000px" }}
-            >
+            <div id="service" className={styles.area}>
                 <h5 className={styles.area_title}>
                     {t("title.index.service")}
                 </h5>
+                <div className={styles.mockup}>
+                    <div className={styles.mockup_image_container}>
+                        <Image
+                            src="/images/common/play.store.webp"
+                            width={350}
+                            height={230}
+                        />
+                    </div>
+                    <h5 className={styles.mockup_title}>
+                        {t("title.service_and_portfolio.mockup.title")}
+                    </h5>
+                    <p className={styles.mockup_desc}>
+                        {t("title.service_and_portfolio.mockup.desc")}
+                    </p>
+                </div>
+                <div className={styles.info}>
+                    {[1, 2, 3, 4].map((x, idx) => (
+                        <div key={idx} className={styles.info_image_container}>
+                            <Image
+                                src="/images/common/empty_img.svg"
+                                width={350}
+                                height={230}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
             <div id="portfolio" className={styles.area}>
                 <h5 className={styles.area_title}>
@@ -65,17 +87,19 @@ const ServiceAndPortfolio = () => {
                 </h5>
                 <div className={styles.portfolio_items}>
                     {portfolioItems.map((item) => (
-                        <div
-                            key={item.key}
-                            className={styles.img_container}
-                            title="(Participation) Frontend"
-                            onClick={item.onClick}
-                        >
-                            <Image
-                                src={item.imgPath}
-                                width={item.imgWidth}
-                                height={item.imgHeight}
-                            />
+                        <div>
+                            <div
+                                key={item.key}
+                                className={styles.img_container}
+                                title="(Participation) Frontend"
+                                onClick={item.onClick}
+                            >
+                                <Image
+                                    src={item.imgPath}
+                                    width={item.imgWidth}
+                                    height={item.imgHeight}
+                                />
+                            </div>
                             <div className={styles.img_label}>{item.label}</div>
                         </div>
                     ))}
